@@ -12,9 +12,10 @@ import javax.persistence.Id;
 @Data
 @Entity(name = "user")
 public class JPAUser {
-    @Id
-    @Column
-    private Integer id;
+//    这个是新版本 20220122 21：23
+@Id
+@Column
+private Integer id;
     @Column
     private String username;
     @Column
