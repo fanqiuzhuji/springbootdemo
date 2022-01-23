@@ -38,9 +38,9 @@ public class UserHandler {
         return jpaUserRepository.save(jpaUser);
     }
 
-    @DeleteMapping("/deleteById/{id}")
-    public String deleteById(@PathVariable("id") Integer id) {
-        jpaUserRepository.deleteById(id);
+    @PostMapping("/deleteById")
+    public String deleteById(JpaUser jpaUser) {
+        jpaUserRepository.deleteById(jpaUser.getId());
         return "delete done";
     }
 
@@ -68,8 +68,8 @@ public class UserHandler {
         return userRepository.update(user);
     }
 
-    @PostMapping("/deleteById/{id}")
-    public int deleteById(@PathVariable("id") Integer id) {
-        return userRepository.deleteById(id);
+    @PostMapping("/deleteById")
+    public int deleteById(User user) {
+        return userRepository.deleteById(user.getId());
     }*/
 }
