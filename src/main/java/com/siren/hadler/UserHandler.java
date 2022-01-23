@@ -29,13 +29,13 @@ public class UserHandler {
     }
 
     @PostMapping("/save")
-    public int save(JpaUser jpaUser) {
-        return jpaUserRepository.save(jpaUser).getId();
+    public JpaUser save(JpaUser jpaUser) {
+        return jpaUserRepository.save(jpaUser);
     }
 
     @PostMapping("/update")
-    public int update(JpaUser jpaUser) {
-        return jpaUserRepository.save(jpaUser).getId();
+    public JpaUser update(JpaUser jpaUser) {
+        return jpaUserRepository.save(jpaUser);
     }
 
     @DeleteMapping("/deleteById/{id}")
