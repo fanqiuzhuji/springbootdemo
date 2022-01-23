@@ -12,10 +12,10 @@ import javax.persistence.Id;
 @Data
 @Entity(name = "user")
 public class JPAUser {
-//    这个是新版本 20220122 21：27
-@Id
-@Column
-private Integer id;
+    //    这个版本时间 20220122 22:03,
+    @Id
+    @Column
+    private Integer id;
     @Column
     private String username;
     @Column
