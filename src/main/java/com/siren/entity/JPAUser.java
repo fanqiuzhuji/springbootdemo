@@ -2,19 +2,17 @@ package com.siren.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Administrator on 22-1-22.
  */
 @Data
 @Entity(name = "user")
-public class JPAUser {
+public class JpaUser {
     //    这个版本时间 20220122 22:03,
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column
     private String username;
