@@ -1,13 +1,11 @@
 package com.siren.hadler;
-
 import com.siren.entity.JpaUser;
-import com.siren.entity.User;
 import com.siren.repository.JpaUserRepository;
-import com.siren.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Administrator on 22-1-21.
@@ -23,6 +21,27 @@ public class UserHandler {
     @GetMapping("findAll")
     public List<JpaUser> findAll() {
         return jpaUserRepository.findAll();
+    }
+
+    @GetMapping("/findById/{id}")
+    public JpaUser findById(@PathVariable("id") Integer id) {
+        return jpaUserRepository.findById(id).get();
+    }
+
+    @PostMapping("/save")
+    public int save(JpaUser jpaUser) {
+        return jpaUserRepository.save(jpaUser).getId();
+    }
+
+    @PostMapping("/update")
+    public int update(JpaUser jpaUser) {
+        return jpaUserRepository.save(jpaUser).getId();
+    }
+
+    @DeleteMapping("/deleteById/{id}")
+    public String deleteById(@PathVariable("id") Integer id) {
+        jpaUserRepository.deleteById(id);
+        return "delete done";
     }
 
     /*//以下用的JDBCTemplate UserRepository
@@ -49,8 +68,8 @@ public class UserHandler {
         return userRepository.update(user);
     }
 
-    @PostMapping("/deleteById")
-    public int deleteById(User user) {
-        return userRepository.deleteById(user.getId());
+    @PostMapping("/deleteById/{id}")
+    public int deleteById(@PathVariable("id") Integer id) {
+        return userRepository.deleteById(id);
     }*/
 }
