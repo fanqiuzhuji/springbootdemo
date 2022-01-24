@@ -7,7 +7,7 @@ import lombok.Data;
  */
 @Data
 public class User {
-    //    这个版本时间 20220122 22:08
+    //    2022年2月24日 10:27
     private Integer id;
 
     public Integer getId() {
