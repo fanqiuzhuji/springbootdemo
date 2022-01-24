@@ -32,8 +32,11 @@ public class UserHandler {
     }
 
     @PostMapping("/save")
-    public JpaUser save(JpaUser jpaUser) {
-        return jpaUserRepository.save(jpaUser);
+    public List<JpaUser> save(JpaUser jpaUser) {
+        //        return jpaUserRepository.save(jpaUser);
+        jpaUserRepository.save(jpaUser);
+        return jpaUserRepository.findAll();
+
     }
 
    /* //使用modelandvie***********************************
@@ -46,14 +49,15 @@ public class UserHandler {
     }*/
 
     @PostMapping("/update")
-    public JpaUser update(JpaUser jpaUser) {
-        return jpaUserRepository.save(jpaUser);
+    public List<JpaUser> update(JpaUser jpaUser) {
+        jpaUserRepository.save(jpaUser);
+        return jpaUserRepository.findAll();
     }
 
     @PostMapping("/deleteById")
-    public String deleteById(JpaUser jpaUser) {
+    public List<JpaUser> deleteById(JpaUser jpaUser) {
         jpaUserRepository.deleteById(jpaUser.getId());
-        return "delete done";
+        return jpaUserRepository.findAll();
     }
 
     /*//以下用的JDBCTemplate UserRepository
