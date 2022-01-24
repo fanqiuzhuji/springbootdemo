@@ -2,7 +2,9 @@ package com.siren.hadler;
 import com.siren.entity.JpaUser;
 import com.siren.repository.JpaUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +12,7 @@ import java.util.Optional;
 /**
  * Created by Administrator on 22-1-21.
  */
+/*@Controller   //使用modelandview模式时候使用@Controller*/
 @RestController
 @RequestMapping("/user")
 public class UserHandler {
@@ -32,6 +35,15 @@ public class UserHandler {
     public JpaUser save(JpaUser jpaUser) {
         return jpaUserRepository.save(jpaUser);
     }
+
+   /* //使用modelandvie***********************************
+    @PostMapping("/save")
+    public ModelAndView save(JpaUser jpaUser){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("usersaved");
+        modelAndView.addObject("jpaUser",jpaUserRepository.save(jpaUser));
+        return modelAndView;
+    }*/
 
     @PostMapping("/update")
     public JpaUser update(JpaUser jpaUser) {

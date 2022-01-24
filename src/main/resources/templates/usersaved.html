@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>usersaved page</title>
+</head>
+<body>
+<p>usersaved page</p>
+<!--********************************************************-->
+<!--使用modelandview模式时候使用带thymeleaf标签的html页面，并且要放在templates下-->
+<div>
+    id:<h1 th:text="${jpaUser.id}"></h1><br>
+    username:<h1 th:text="${jpaUser.username}"></h1><br>
+    password:<h1 th:text="${jpaUser.password}"></h1><br>
+</div>
+</body>
+</html>

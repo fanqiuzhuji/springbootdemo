@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class JpaUser {
     //    这个版本时间 20220122 22:03,
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
     private String username;
